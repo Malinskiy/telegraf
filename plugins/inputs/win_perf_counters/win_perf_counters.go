@@ -250,12 +250,12 @@ func (m *Win_PerfCounters) addCounterToQuery(counterPath string) (PDH_HCOUNTER, 
 	if !m.query.IsVistaOrNewer() {
 		counterHandle, err = m.query.AddCounterToQuery(counterPath)
 		if err != nil {
-			return nil, err
+			return 0, err
 		}
 	} else {
 		counterHandle, err = m.query.AddEnglishCounterToQuery(counterPath)
 		if err != nil {
-			return nil, err
+			return 0, err
 		}
 	}
 
